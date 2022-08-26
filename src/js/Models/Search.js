@@ -8,7 +8,7 @@ export default class Search {
 
     async getData(query) {
         try {
-            const res = await axios(`http://api.weatherapi.com/v1/current.json?key=914a0de65e1642fe8b5132613221506&q=${query}`);
+            const res = await axios(`https://api.weatherapi.com/v1/current.json?key=914a0de65e1642fe8b5132613221506&q=${query}`);
             this.item = res.data;
 
             this.img = this.item.current.condition.icon;
