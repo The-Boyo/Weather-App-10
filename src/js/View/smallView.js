@@ -52,7 +52,7 @@ export function setBackground(con, timer, num) {
         if (newTime.length === 8) {
             saa = eval(`${newTime[0]}${newTime[1]}`);
             if (saa === 12) {
-                twinView.conBackground(con, display, changeTimeColor, changeTempColor);
+                twinView.conBackground(con, display, changeSmallTimeColor, changeTempColor);
             } else if (saa >= 7) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor(num);
@@ -64,7 +64,7 @@ export function setBackground(con, timer, num) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor(num);
             } else if (saa < 7) {
-                twinView.conBackground(con, display, changeTimeColor, changeTempColor);
+                twinView.conBackground(con, display, changeSmallTimeColor, changeTempColor);
             }
         }
     }
@@ -77,12 +77,12 @@ export function setBackground(con, timer, num) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor(num);
             } else if (masaa >= 7) {
-                twinView.conBackground(con, display, changeTimeColor, changeTempColor);
+                twinView.conBackground(con, display, changeSmallTimeColor, changeTempColor);
             }
         } else if (newTime.length === 7) {
             masaa = eval(`${newTime[0]}`)
             if (masaa >= 6) {
-                twinView.conBackground(con, display, changeTimeColor, changeTempColor);
+                twinView.conBackground(con, display, changeSmallTimeColor, changeTempColor);
             } else if (masaa < 6) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor(num);
