@@ -25,15 +25,15 @@ const changeAllColor = (num) => {
     })
 }
 
-export const changeSmallTimeColor = () => {
-    const tempColor = Array.from(document.querySelectorAll('.time-now'));
+export const changeSmallTimeColor = (num) => {
+    const tempColor = Array.from(document.querySelectorAll(`.time-now-${num}`));
     tempColor.forEach(el => {
         el.style.color = '#ddf';
     })
 }
 
-export const changeTempColor = () => {
-    const tempColor = Array.from(document.querySelectorAll('.small-wetter'));
+export const changeTempColor = (num) => {
+    const tempColor = Array.from(document.querySelectorAll(`.small-wetter-${num}`));
     tempColor.forEach(el => {
         el.style.color = '#ddf';
     })
@@ -99,13 +99,13 @@ export function setBackground(con, timer, num) {
 export function renderSmall(place, num) {
     const markup = `    
                 <div class="cur-timely">
-                    <h6 class="small time-now">${twinView.getTime(place.time)}</h6>
+                    <h6 class="small time-now-${num}">${twinView.getTime(place.time)}</h6>
                 </div>
                 <div>
                     <img src="${place.img}" alt="weather" height="60px" width="60px" class="small small-icon">
                     <ul class="con-list-small">
-                        <li class="small small-wetter small-cons">${place.condition}</li>
-                        <li class="small small-wetter small-temp-c">${place.temp_c}&#176C</li>
+                        <li class="small small-wetter-${num} small-cons">${place.condition}</li>
+                        <li class="small small-wetter-${num} small-temp-c">${place.temp_c}&#176C</li>
                     </ul>
                 </div>
                 <div class="theHeading">
@@ -120,6 +120,8 @@ export function renderSmall(place, num) {
 export function clearAllUI(num) {
     document.querySelector(`.${num}`).innerHTML = '';
     document.querySelector(`.${num}`).style.backgroundImage = 'none';
+    document.querySelector(`.${num}`).style.color = 'black';
+
 }
 
 //CLEAR ALL SIDE WEATHER AFTER FAILED SEARCH /// 

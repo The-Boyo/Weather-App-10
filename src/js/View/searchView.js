@@ -84,7 +84,7 @@ export function setBackground(con, timer) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor();
             } else if (saa < 7) {
-                twinView.conBackground(con, display);
+                twinView.conBackground(con, display, changeColor, changeTimeColor);
             }
         }
     }
@@ -97,12 +97,12 @@ export function setBackground(con, timer) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor();
             } else if (masaa >= 7) {
-                twinView.conBackground(con, display);
+                twinView.conBackground(con, display, changeColor, changeTimeColor);
             }
         } else if (newTime.length === 7) {
             masaa = eval(`${newTime[0]}`)
             if (masaa >= 6) {
-                twinView.conBackground(con, display);
+                twinView.conBackground(con, display, changeColor, changeTimeColor);
             } else if (masaa < 6) {
                 display.style.backgroundImage = "url('../img/night.jpg')";
                 changeAllColor();
