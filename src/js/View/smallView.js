@@ -25,7 +25,7 @@ const changeAllColor = (num) => {
     })
 }
 
-export const changeTimeColor = () => {
+export const changeSmallTimeColor = () => {
     const tempColor = Array.from(document.querySelectorAll('.time-now'));
     tempColor.forEach(el => {
         el.style.color = '#ddf';
