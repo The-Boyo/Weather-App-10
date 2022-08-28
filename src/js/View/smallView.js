@@ -16,10 +16,17 @@ export function clearSideLoader(num) {
 }
 */
 
+//FLIP BOX TO SHOW USER HAS CLICKED//
+
+export const flipBox = (num) => {
+    document.querySelector(`.${num}`).classList.toggle('flip');
+}
+
+
 //CHANGE COLOR TO DISTINGUISH BACKGROUND//
 
 const changeAllColor = (num) => {
-    const tempColor = Array.from(document.querySelectorAll(`.${num}`));
+    const tempColor = Array.from(document.querySelectorAll(`.${num}, .fa-${num}`));
     tempColor.forEach(el => {
         el.style.color = '#ddf';
     })
@@ -97,21 +104,25 @@ export function setBackground(con, timer, num) {
 // RENDER SIDE WEATHER TO UI /////
 
 export function renderSmall(place, num) {
-    const markup = `    
-                <div class="cur-timely">
-                    <h6 class="small time-now-${num}">${twinView.getTime(place.time)}</h6>
-                </div>
-                <div>
-                    <img src="${place.img}" alt="weather" height="60px" width="60px" class="small small-icon">
-                    <ul class="con-list-small">
-                        <li class="small small-wetter-${num} small-cons">${place.condition}</li>
-                        <li class="small small-wetter-${num} small-temp-c">${place.temp_c}&#176C</li>
-                    </ul>
-                </div>
-                <div class="theHeading">
-                    <h3 class="small headings small-top">${place.name}</h3>
-                    <h5 class="small headings small-next">${place.country}</h5>
-                </div>`
+    const markup = `
+            <div class="box-cont" data-name = "${place.name}">
+            <div class="cur-timely">
+                <h6 class="small time-now-${num}">${twinView.getTime(place.time)}</h6>
+                <i class="fa-regular fa-circle-stop"></i>
+            </div>
+            <div>
+                <img src="${place.img}" alt="weather" height="60px" width="60px" class="small small-icon">
+                <ul class="con-list-small">
+                    <div class= "div-cons"><li class="small small-wetter-${num} small-cons">${place.condition}</li> </div>
+                    <li class="small small-wetter-${num} small-temp-c">${place.temp_c}&#176C</li>
+                </ul>
+            </div>
+            <div class="theHeading">
+                <h3 class="small headings small-top">${place.name}</h3>
+                <h5 class="small headings small-next">${place.country}</h5>
+                <i class="fa-solid fa-${num} fa-circle-arrow-right"></i>
+            </div>
+            </div>`
 
     document.querySelector(`.${num}`).insertAdjacentHTML('beforeend', markup);
 }
