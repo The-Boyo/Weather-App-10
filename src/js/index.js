@@ -7,9 +7,8 @@ import * as smallView from "./View/smallView";
 const state = {};
 
 
-async function controlSearch() {
+async function controlSearch(query) {
     // Get User Input
-    const query = document.querySelector('.city').value;
 
     //Clear Previous search from UI
     if (query) {
@@ -40,7 +39,7 @@ async function controlSearch() {
 }
 
 
-/////// Control side Weather/////
+/////// CONTROL SIDE WEATHER/////
 
 async function asideWeather(asideCity, num) {
     state.aside = new Search;
@@ -49,6 +48,7 @@ async function asideWeather(asideCity, num) {
     try {
         await state.aside.getData(asideCity);
         // smallView.clearSideLoader(num);
+        smallView.flipBox(num);
         smallView.renderSmall(state.aside, num);
         // smallView.setBackground(state.aside.condition, state.aside.time, num);
 
@@ -71,6 +71,7 @@ async function callCities() {
 async function boxRefresh(el) {
     const id = el.target.closest('.box').id;
     smallView.clearAllUI(id);
+    smallView.flipBox(id);
     // smallView.renderSideLoader(id);
     console.log(id);
     if (id === 'one') {
@@ -88,6 +89,16 @@ async function boxRefresh(el) {
     }
     smallView.setBackground(state.aside.condition, state.aside.time, id);
 }
+
+async function showMore(e) {
+
+    if (e.target.matches('.fa-circle-arrow-right')) {
+        const name = e.target.parentElement.parentElement.dataset.name;
+        controlSearch(name);
+    }
+
+}
+
 
 
 /* 
@@ -110,12 +121,17 @@ async function init() {
 
         document.querySelector('.search-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            controlSearch();
+            controlSearch(document.querySelector('.city').value);
         })
 
         Array.from(document.querySelectorAll('.box')).forEach(cur => {
             cur.addEventListener('click', boxRefresh);
         })
+
+        Array.from(document.querySelectorAll('.box')).forEach(ele => {
+            ele.addEventListener('click', showMore);
+        })
+
 
     } catch (error) {
         alert(`App Not Started!!..Refresh Or Check Internet Connection`)
