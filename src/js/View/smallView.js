@@ -13,6 +13,7 @@ export function renderSideLoader(num) {
 export function clearSideLoader(num) {
     const loader = document.querySelector(`.${num}`);
     loader.parentElement.removeChild(loader);
+
 }
 */
 
@@ -105,11 +106,11 @@ export function setBackground(con, timer, num) {
 
 export function renderSmall(place, num) {
     const markup = `
-            <div class="box-cont" data-name = "${place.name}">
+            <div class="box-cont" data-name = "${place.name}" data-box = "${num}">
             <div class="cur-timely">
                 <h6 class="small time-now-${num}">${twinView.getTime(place.time)}</h6>
-                <i class="fa-regular fa-circle-stop"></i>
-            </div>
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            </div>    
             <div>
                 <img src="${place.img}" alt="weather" height="60px" width="60px" class="small small-icon">
                 <ul class="con-list-small">

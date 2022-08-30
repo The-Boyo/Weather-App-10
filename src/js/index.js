@@ -5,6 +5,7 @@ import * as smallView from "./View/smallView";
 ///Search Controller ////
 
 const state = {};
+let cities = [];
 
 
 async function controlSearch(query) {
@@ -52,51 +53,131 @@ async function asideWeather(asideCity, num) {
         smallView.renderSmall(state.aside, num);
         // smallView.setBackground(state.aside.condition, state.aside.time, num);
 
-
     } catch (error) {
         alert(`Oops!! Refresh...`);
     }
-
 }
+
 
 async function callCities() {
-    await asideWeather('Paris', 'one');
-    await asideWeather('Sydney', 'two');
-    await asideWeather('Sao', 'three');
-    await asideWeather('Douala', 'four');
-    await asideWeather('Siberia', 'five');
-    await asideWeather('Dubai', 'six');
+    // const storage = JSON.parse(localStorage.getItem('cities'));
+
+    if (localStorage) {
+        for (const key in localStorage) {
+            if (key === 'one') {
+                await asideWeather(localStorage.getItem('one'), 'one');
+                cities.push(state.aside);
+            } else if (key === 'two') {
+                await asideWeather(localStorage.getItem('two'), 'two');
+                cities.push(state.aside);
+            } else if (key === 'three') {
+                await asideWeather(localStorage.getItem('three'), 'three');
+                cities.push(state.aside);
+            } else if (key === 'four') {
+                await asideWeather(localStorage.getItem('four'), 'four');
+                cities.push(state.aside);
+            } else if (key === 'five') {
+                await asideWeather(localStorage.getItem('five'), 'five');
+                cities.push(state.aside);
+            } else if (key === 'six') {
+                await asideWeather(localStorage.getItem('six'), 'six');
+                cities.push(state.aside);
+            }
+        }
+    } else {
+
+        await asideWeather('Accra', 'one');
+        cities.push(state.aside);
+        localStorage.setItem('one', state.aside.name);
+        await asideWeather('Rio', 'two');
+        cities.push(state.aside);
+        localStorage.setItem('two', state.aside.name);
+        await asideWeather('London', 'three');
+        cities.push(state.aside);
+        localStorage.setItem('three', state.aside.name);
+        await asideWeather('Delhi', 'four');
+        cities.push(state.aside);
+        localStorage.setItem('four', state.aside.name);
+        await asideWeather('Kampala', 'five');
+        cities.push(state.aside);
+        localStorage.setItem('five', state.aside.name);
+        await asideWeather('Chicago', 'six');
+        cities.push(state.aside);
+        localStorage.setItem('six', state.aside.name);
+    }
 }
+
 
 async function boxRefresh(el) {
     const id = el.target.closest('.box').id;
     smallView.clearAllUI(id);
     smallView.flipBox(id);
     // smallView.renderSideLoader(id);
-    console.log(id);
     if (id === 'one') {
-        await asideWeather('Paris', id);
+        await asideWeather(localStorage.getItem('one'), id);
     } else if (id === 'two') {
-        await asideWeather('Sydney', id);
+        await asideWeather(localStorage.getItem('two'), id);
     } else if (id === 'three') {
-        await asideWeather('Sao', id);
+        await asideWeather(localStorage.getItem('three'), id);
     } else if (id === 'four') {
-        await asideWeather('Douala', id);
+        await asideWeather(localStorage.getItem('four'), id);
     } else if (id === 'five') {
-        await asideWeather('Siberia', id);
+        await asideWeather(localStorage.getItem('five'), id);
     } else if (id === 'six') {
-        await asideWeather('Dubai', id);
+        await asideWeather(localStorage.getItem('six'), id);
     }
     smallView.setBackground(state.aside.condition, state.aside.time, id);
 }
 
 async function showMore(e) {
-
     if (e.target.matches('.fa-circle-arrow-right')) {
         const name = e.target.parentElement.parentElement.dataset.name;
-        controlSearch(name);
+        await controlSearch(name);
     }
+}
 
+
+async function changeCity(el) {
+    if (el.target.matches('.fa-arrow-right-arrow-left')) {
+        const ans = confirm(`Do you really want to change this city?`);
+        if (ans === true) {
+            const smallQuery = prompt('Enter new city name');
+            try {
+                if (smallQuery) {
+                    const num = el.target.parentElement.parentElement.dataset.box;
+                    smallView.clearAllUI(num);
+                    await asideWeather(smallQuery, num);
+                    if (num === 'one') {
+                        cities.splice(0, 1, state.aside);
+                        localStorage.removeItem('one');
+                        localStorage.setItem('one', state.aside.name);
+                    } else if (num === 'two') {
+                        cities.splice(1, 1, state.aside);
+                        localStorage.removeItem('two');
+                        localStorage.setItem('two', state.aside.name);
+                    } else if (num === 'three') {
+                        cities.splice(2, 1, state.aside);
+                        localStorage.removeItem('three');
+                        localStorage.setItem('three', state.aside.name);
+                    } else if (num === 'four') {
+                        cities.splice(3, 1, state.aside);
+                        localStorage.removeItem('four');
+                        localStorage.setItem('four', state.aside.name);
+                    } else if (num === 'five') {
+                        cities.splice(4, 1, state.aside);
+                        localStorage.removeItem('five');
+                        localStorage.setItem('five', state.aside.name);
+                    } else if (num === 'six') {
+                        cities.splice(5, 1, state.aside);
+                        localStorage.removeItem('six');
+                        localStorage.setItem('six', state.aside.name);
+                    }
+                }
+            } catch (error) {
+                alert(`error loading request.Please try again!!`)
+            }
+        }
+    }
 }
 
 
@@ -117,7 +198,6 @@ async function init() {
 
         await callCities();
 
-        console.log('App is working')
 
         document.querySelector('.search-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -132,6 +212,9 @@ async function init() {
             ele.addEventListener('click', showMore);
         })
 
+        Array.from(document.querySelectorAll('.box')).forEach(cur => {
+            cur.addEventListener('click', changeCity);
+        })
 
     } catch (error) {
         alert(`App Not Started!!..Refresh Or Check Internet Connection`)
@@ -140,7 +223,6 @@ async function init() {
 
 }
 init();
-
 
 
 

@@ -33,7 +33,7 @@ export function conBackground(con, itsLike, callBack1, callBack2) {
 
 export function getTime(time) {
     const hr = time.split('');
-    const fg = hr.splice(0, 11);
+    hr.splice(0, 11);
     const bn = hr.join('');
     const re = bn.split(':')
     if (re[0] > 12) {
