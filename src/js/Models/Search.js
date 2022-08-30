@@ -10,7 +10,6 @@ export default class Search {
         try {
             const res = await axios(`https://api.weatherapi.com/v1/current.json?key=914a0de65e1642fe8b5132613221506&q=${query}`);
             this.item = res.data;
-            console.log(this.item);
 
             this.img = this.item.current.condition.icon;
             this.name = this.item.location.name;

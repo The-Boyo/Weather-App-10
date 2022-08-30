@@ -62,7 +62,7 @@ async function asideWeather(asideCity, num) {
 async function callCities() {
     // const storage = JSON.parse(localStorage.getItem('cities'));
 
-    if (localStorage) {
+    if (localStorage.length > 1) {
         for (const key in localStorage) {
             if (key === 'one') {
                 await asideWeather(localStorage.getItem('one'), 'one');
@@ -84,8 +84,9 @@ async function callCities() {
                 cities.push(state.aside);
             }
         }
-    } else {
+    }
 
+    else {
         await asideWeather('Accra', 'one');
         cities.push(state.aside);
         localStorage.setItem('one', state.aside.name);
