@@ -26,6 +26,20 @@ export function limitTitle(title) {
     }
 }
 
+function UVIndex(uv) {
+    if (uv <= 2) {
+        return `Low`;
+    } else if (uv > 2 && uv <= 5) {
+        return `Moderate`;
+    } else if (uv > 5 && uv <= 7) {
+        return `High`;
+    } else if (uv > 7 && uv <= 10) {
+        return `Very High`;
+    } else if (uv > 10) {
+        return `Extreme`;
+    }
+}
+
 const changeAllColor = () => {
     const tempColor = Array.from(document.querySelectorAll('.wetter, .cur-time, .heading, .wet'));
     tempColor.forEach(el => {
@@ -134,16 +148,16 @@ export function renderItem(town) {
                 <div class="all-con">
                         <div class="con-1">
                             <ul class="con-list">
-                                <li class="wet temp-f">Temperature => ${town.temp_f}&#176f</li >
-                                <li class="wet wind-speed-kph">Wind Speed => ${town.wind_kph} kph</li >
-                                <li class="wet wind-speed-mph">Wind Speed => ${town.wind_mph} mph</li >
+                                <li class="wet temp-f">Feels like => ${town.feelslike}&#176c</li >
+                                <li class="wet wind-speed-kph">Wind Speed => ${town.wind_kph} km/h</li >
+                                <li class="wet wind-speed-kph">Gust => ${town.gust_kph} km/h</li >
                                 <li class="wet wind-direction">Wind Direction => ${town.wind_dir}</li >
-                                <li class="wet wind-degree">Wind Degree => ${town.wind_degree}</li >
+                                <li class="wet wind-degree">Wind Degree => ${town.wind_degree}&#176</li >
                                 <li class="wet pressure">Pressure => ${town.pressure_mb} mb</li >
                                 <li class="wet prec">Precipitation => ${town.prec} mm</li >
                                 <li class="wet humidity">Humidity =>${town.humidity}%</li >
                                 <li class="wet cloud">Cloud=> ${town.cloud}</li >
-                                <li class="wet uv">UV => ${town.uv}</li >
+                                <li class="wet uv">UV => ${UVIndex(town.uv)}</li >
                             </ul>
                         </div>
                 </div>`
