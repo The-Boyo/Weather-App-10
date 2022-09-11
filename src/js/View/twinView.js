@@ -48,6 +48,49 @@ export function getTime(time) {
     }
 }
 
+//2022-09-03 15:37
+
+export function getDate(day) {
+    const date = day.split('');
+    date.splice(11, 6);
+    const newDay = date.join('');
+    const rev = newDay.split('-');
+    rev.reverse();
+    const str = rev.join('-');
+    const rep = str.replace(/[-]/g, '/');
+    const ones = rep.split('');
+    if (ones[0] === '0' && ones[4] === '0') {
+        ones.splice(0, 1);
+        ones.splice(1, 1);
+        ones.splice(2, 1);
+        const theDate = ones.join('');
+        return theDate;
+    } else if (ones[0] === '0' && ones[4] > '0') {
+        ones.splice(0, 1);
+        ones.splice(1, 1);
+        const theDate = ones.join('');
+        return theDate;
+    } else if (ones[0] > '0' && ones[4] === '0') {
+        ones.splice(2, 1);
+        ones.splice(3, 1);
+        const theDate = ones.join('');
+        return theDate;
+    }
+    else {
+        const theDate = ones.join('');
+        return theDate;
+    }
+};
+
+
+export function removeDecimal(temp) {
+    const newTemp = Math.floor(temp);
+    return newTemp;
+}
+
+
+
+
 
 
 
