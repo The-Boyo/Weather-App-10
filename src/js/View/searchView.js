@@ -134,10 +134,12 @@ export function renderItem(town) {
                 <div class="cur-time">
                     <h6 class="current">Current Weather</h6>
                     <h6 class="time">${twinView.getTime(town.time)}</h6>
+                    <p class="date">${twinView.getDate(town.time)}</p>
+
                 </div>
                 <ul class="con-list-1">
                     <li class="wetter cons">${town.condition}</li >
-                    <li  class="wetter temp-c">${town.temp_c}<span class= "deg">&#176</span>c</li >
+                    <li  class="wetter temp-c">${twinView.removeDecimal(town.temp_c)}<span class= "deg">&#176</span>c</li >
                     <li> <img src="${town.img}" alt="weather" class="weather"></li >
                     </ul>
                 </div>
@@ -148,7 +150,7 @@ export function renderItem(town) {
                 <div class="all-con">
                         <div class="con-1">
                             <ul class="con-list">
-                                <li class="wet temp-f">Feels like => ${town.feelslike}&#176c</li >
+                                <li class="wet temp-f">Feels Like => ${twinView.removeDecimal(town.feelslike)}&#176c</li >
                                 <li class="wet wind-speed-kph">Wind Speed => ${town.wind_kph} km/h</li >
                                 <li class="wet wind-speed-kph">Gust => ${town.gust_kph} km/h</li >
                                 <li class="wet wind-direction">Wind Direction => ${town.wind_dir}</li >
