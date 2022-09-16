@@ -450,13 +450,12 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 2fr);
     grid-auto-rows: minmax(220px, auto);
-    grid-auto-columns: minmax(auto);
     grid-row-gap: 1em;
     padding: 20px 0;
   }
 
   .main > div {
-    margin: 0 2em;
+    margin: 0 1em;
   }
 
   .display {
@@ -529,7 +528,6 @@ body {
   top: 0.4em;
   font-size: 1.1rem;
   margin-bottom: 30px;
-
 }
 
 .small-top {
