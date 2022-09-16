@@ -1,6 +1,7 @@
 import Search from "./Models/Search";
 import * as searchView from "./View/searchView";
 import * as smallView from "./View/smallView";
+import * as dateView from "./View/dateView";
 
 ///Search Controller ////
 
@@ -199,6 +200,7 @@ async function init() {
 
         await callCities();
 
+        dateView.renderDateFooter();
 
         document.querySelector('.search-form').addEventListener('submit', async (e) => {
             e.preventDefault();

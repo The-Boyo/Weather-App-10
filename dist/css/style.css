@@ -6,11 +6,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  background-repeat: no-repeat;
+  background-size: contain;
   background: linear-gradient(
     to left,
     rgb(235, 225, 225),
@@ -464,6 +467,10 @@ body {
   }
 }
 
+.box {
+  padding-left: 1em;
+}
+
 .cur-timely {
   position: relative;
   margin-top: 0.2em;
@@ -473,14 +480,16 @@ body {
 .fa-arrow-right-arrow-left {
   position: absolute;
   top: 3px;
-  left: 89%;
+  right: 10px;
   font-size: 1em;
-  margin-right: 0.3em;
+  /* margin-right: 0.3em; */
 }
 
 .date-is {
+  position: relative;
   font-size: 0.525em;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  left: 0.5em;
 }
 
 .small {
@@ -517,10 +526,10 @@ body {
 
 .theHeading {
   position: relative;
-  height: fit-content;
+  height: min-content;
   top: 0.4em;
   font-size: 1.1rem;
-  margin-bottom: -40px;
+  margin-bottom: 30px;
 }
 
 .small-top {
@@ -532,7 +541,7 @@ body {
   position: absolute;
   top: 55%;
   /* bottom: 0em; */
-  left: 90%;
+  right: 10px;
   color: rgb(16, 16, 17);
 }
 
