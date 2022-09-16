@@ -59,11 +59,35 @@ body {
   text-decoration: line-through;
 }
 
-.info {
+.fa-circle-info {
   position: absolute;
-  right: 1em;
-  top: 4.5em;
+  font-size: 1.2em;
+  right: 25px;
+  top: -9px;
+}
+
+.info-para {
+  position: absolute;
+  height: 90px;
+  width: 95px;
+  right: 3.5em;
+  top: -3px;
+  background: rgba(29, 48, 131, 0.7);
+  color: rgb(155, 155, 141);
+  padding: 0.5em;
+  border-radius: 2em;
+  border-top-right-radius: 0;
+  transform: skew(-15deg);
+  visibility: hidden;
+}
+
+.info {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: oblique;
+}
+
+.fa-circle-info:hover ~ .info-para {
+  visibility: visible;
 }
 
 .fa-sun {
@@ -117,6 +141,9 @@ body {
   grid-row-gap: 0.5em;
   grid-column-gap: 0.5em;
   grid-auto-rows: minmax(auto);
+  box-shadow: 1px 1px 5px;
+  padding: 30px;
+  border-radius: 0.3em;
 }
 
 .main > div {
@@ -131,7 +158,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  box-shadow: -2px -2px 3px black !important;
+  box-shadow: -2px -2px 3px black;
+  border-radius: 1em;
+  cursor: pointer;
 }
 
 .main .display {
@@ -146,6 +175,7 @@ body {
   background-repeat: no-repeat;
   /* border: 1px solid rgb(89, 119, 201); */
   /* border-bottom: none; */
+  cursor: auto;
 }
 
 .one:hover,
@@ -383,12 +413,14 @@ body {
   grid-auto-columns: minmax(200px, auto);
 }
 
-@media (max-width: 853px) {
+@media (max-width: 987px) {
   .main {
     display: grid;
     grid-template-columns: repeat(2, 3fr);
     grid-auto-rows: minmax(230px, auto);
-    grid-row-gap: 0.1em;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+    padding: 20px 10px;
   }
 
   .display {
@@ -404,12 +436,25 @@ body {
 }
 
 @media (max-width: 699px) {
+  .kusema-pro {
+    font-size: 1.9em;
+  }
+
+  .para {
+    font-size: 0.78em;
+  }
+
   .main {
     display: grid;
     grid-template-columns: repeat(1, 2fr);
     grid-auto-rows: minmax(220px, auto);
     grid-auto-columns: minmax(auto);
-    grid-row-gap: 0.4em;
+    grid-row-gap: 1em;
+    padding: 20px 0;
+  }
+
+  .main > div {
+    margin: 0 2em;
   }
 
   .display {
@@ -517,4 +562,12 @@ body {
   100% {
     transform: rotateY(360deg);
   }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
 }
