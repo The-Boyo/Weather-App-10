@@ -22,7 +22,8 @@ export function clearLoader() {
 //Fitting display of long worded City Names
 export function limitTitle(title) {
     if (title.length > 27) {
-        document.querySelector('.top').style.left = '20px';
+        document.querySelector('.top').style.left = '25%';
+        document.querySelector('.next').style.left = '25%';
     }
 }
 
@@ -135,11 +136,11 @@ export function renderItem(town) {
                     <h6 class="current">Current Weather</h6>
                     <h6 class="time">${twinView.getTime(town.time)}</h6>
                     <p class="date">${twinView.getDate(town.time)}</p>
-
                 </div>
+                <div class= "con-temp">
                 <ul class="con-list-1">
-                    <li class="wetter cons">${town.condition}</li >
-                    <li  class="wetter temp-c">${twinView.removeDecimal(town.temp_c)}<span class= "deg">&#176</span>c</li >
+                <li  class="wetter temp-c">${twinView.removeDecimal(town.temp_c)}<span class= "deg">&#176</span>c</li >
+                <li class="wetter cons">${town.condition}</li >
                     <li> <img src="${town.img}" alt="weather" class="weather"></li >
                     </ul>
                 </div>
