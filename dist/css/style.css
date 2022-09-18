@@ -461,6 +461,7 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 2fr);
     grid-auto-rows: minmax(220px);
+    grid-auto-columns: minmax(200px);
     grid-row-gap: 1em;
     padding: 20px 0;
   }
