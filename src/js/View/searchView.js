@@ -139,9 +139,9 @@ export function renderItem(town) {
                 </div>
                 <div class= "con-temp">
                 <ul class="con-list-1">
+                <li> <img src="${town.img}" alt="weather" class="weather"></li >
                 <li  class="wetter temp-c">${twinView.removeDecimal(town.temp_c)}<span class= "deg">&#176</span>c</li >
                 <li class="wetter cons">${town.condition}</li >
-                    <li> <img src="${town.img}" alt="weather" class="weather"></li >
                     </ul>
                 </div>
                 <div>
