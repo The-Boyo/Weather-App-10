@@ -108,15 +108,15 @@ export function renderSmall(place, num) {
     const markup = `
             <div class="box-cont" data-name = "${place.name}" data-box = "${num}">
             <div class="cur-timely">
-                <h6 class="small time-now-${num}">${twinView.getTime(place.time)}</h6>
+                <h6 class="small is-timely time-now-${num}">${twinView.getTime(place.time)}</h6>
                 <i class="fa-solid fa-arrow-right-arrow-left"></i>
                     <p class="small date-is">${twinView.getDate(place.time)}</p>
             </div>    
-            <div>
+            <div class= "weather-temp">
                 <img src="${place.img}" alt="weather" height="60px" width="60px" class="small small-icon">
                 <ul class="con-list-small">
-                    <div class= "div-cons"><li class="small small-wetter-${num} small-cons">${place.condition}</li> </div>
-                    <li class="small small-wetter-${num} small-temp-c">${twinView.removeDecimal(place.temp_c)}&#176C</li>
+                <li class="small small-wetter-${num} small-temp-c">${twinView.removeDecimal(place.temp_c)}&#176C</li>
+                <div class= "div-cons"><li class="small small-wetter-${num} small-cons">${place.condition}</li> </div>
                 </ul>
             </div>
             <div class="theHeading">
