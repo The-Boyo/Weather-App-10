@@ -370,6 +370,7 @@ body {
   .box {
     margin: 10px 0;
     height: 300px;
+    display: block;
   }
 
   .display {
@@ -420,11 +421,11 @@ body {
   .cons {
     left: 270px;
   }
-}
 
-.box {
-  padding-left: 1em;
-  display: none;
+  .box {
+    padding-left: 1em;
+    display: none;
+  }
 }
 
 .cur-timely {
