@@ -10,8 +10,6 @@ let cities = [];
 
 
 async function controlSearch(query) {
-    // Get User Input
-
     //Clear Previous search from UI
     if (query) {
         searchView.clearUI();
@@ -29,7 +27,6 @@ async function controlSearch(query) {
             searchView.limitTitle(state.citySearch.name);
             searchView.setBackground(state.citySearch.condition, state.citySearch.time);
 
-            // document.querySelector('.city').textContent = '';
         } catch (error) {
             alert(`Ooops!! there was an error..Please Try again`);
             searchView.clearUI();
@@ -45,14 +42,10 @@ async function controlSearch(query) {
 
 async function asideWeather(asideCity, num) {
     state.aside = new Search;
-    // smallView.clearAllUI(num);
-    // smallView.renderSideLoader(num);
     try {
         await state.aside.getData(asideCity);
-        // smallView.clearSideLoader(num);
         smallView.flipBox(num);
         smallView.renderSmall(state.aside, num);
-        // smallView.setBackground(state.aside.condition, state.aside.time, num);
 
     } catch (error) {
         alert(`Oops!! Refresh...`);
@@ -61,7 +54,6 @@ async function asideWeather(asideCity, num) {
 
 
 async function callCities() {
-    // const storage = JSON.parse(localStorage.getItem('cities'));
 
     if (localStorage.length > 1) {
         for (const key in localStorage) {
@@ -182,6 +174,16 @@ async function changeCity(el) {
     }
 }
 
+//Removing smallView UI from small screens(Phones)
+function changeAppView() {
+    if (window.innerWidth < 568) {
+        Array.from(document.querySelectorAll('.box')).forEach(cur => cur.style.display = 'none');
+        document.querySelector('.fa-circle-info').style.visibility = 'hidden';
+    } else {
+        Array.from(document.querySelectorAll('.box')).forEach(cur => cur.style.display = 'block')
+        document.querySelector('.fa-circle-info').style.visibility = 'visible';
+    }
+}
 
 
 /* 
@@ -200,7 +202,10 @@ async function init() {
 
         await callCities();
 
+        dateView.clearFooter();
         dateView.renderDateFooter();
+
+        window.addEventListener('resize', changeAppView);
 
         document.querySelector('.search-form').addEventListener('submit', async (e) => {
             e.preventDefault();
