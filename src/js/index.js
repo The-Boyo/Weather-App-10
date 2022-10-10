@@ -49,6 +49,7 @@ async function asideWeather(asideCity, num) {
 
     } catch (error) {
         alert(`Oops!! Refresh...`);
+        console.log(error);
     }
 }
 
