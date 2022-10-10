@@ -6,12 +6,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   background: linear-gradient(
-    140deg,
+    to left,
     rgb(66, 119, 197),
     rgb(235, 225, 225),
     rgb(66, 119, 197),
