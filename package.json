@@ -11,14 +11,14 @@
   "author": "Eliud Metto",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-env": "^7.19.3",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.5",
     "babel-preset-env": "^1.7.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.9.3"
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "axios": "^0.27.2",
