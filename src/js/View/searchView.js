@@ -149,7 +149,6 @@ export function renderItem(town) {
                     <h3 class="heading next">${town.country}</h3>
                 </div>
                 <div class="all-con">
-                        <div class="con-1">
                             <ul class="con-list">
                                 <li class="wet temp-f">Feels Like => ${twinView.removeDecimal(town.feelslike)}&#176c</li >
                                 <li class="wet wind-speed-kph">Wind Speed => ${town.wind_kph} km/h</li >
@@ -162,7 +161,6 @@ export function renderItem(town) {
                                 <li class="wet cloud">Cloud=> ${town.cloud}</li >
                                 <li class="wet uv">UV => ${UVIndex(town.uv)}</li >
                             </ul>
-                        </div>
                 </div>`
 
     document.querySelector('.alt-disp').insertAdjacentHTML('beforeend', markup);
