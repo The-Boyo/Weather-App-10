@@ -105,23 +105,24 @@ async function callCities() {
 
 async function boxRefresh(el) {
     const id = el.target.closest('.box').id;
-    smallView.clearAllUI(id);
-    smallView.flipBox(id);
-    // smallView.renderSideLoader(id);
-    if (id === 'one') {
-        await asideWeather(localStorage.getItem('one'), id);
-    } else if (id === 'two') {
-        await asideWeather(localStorage.getItem('two'), id);
-    } else if (id === 'three') {
-        await asideWeather(localStorage.getItem('three'), id);
-    } else if (id === 'four') {
-        await asideWeather(localStorage.getItem('four'), id);
-    } else if (id === 'five') {
-        await asideWeather(localStorage.getItem('five'), id);
-    } else if (id === 'six') {
-        await asideWeather(localStorage.getItem('six'), id);
+    if(!el.target.className.includes('fa')){
+        smallView.clearAllUI(id);
+        smallView.flipBox(id);
+        if (id === 'one') {
+            await asideWeather(localStorage.getItem('one'), id);
+        } else if (id === 'two') {
+            await asideWeather(localStorage.getItem('two'), id);
+        } else if (id === 'three') {
+            await asideWeather(localStorage.getItem('three'), id);
+        } else if (id === 'four') {
+            await asideWeather(localStorage.getItem('four'), id);
+        } else if (id === 'five') {
+            await asideWeather(localStorage.getItem('five'), id);
+        } else if (id === 'six') {
+            await asideWeather(localStorage.getItem('six'), id);
+        }
+        smallView.setBackground(state.aside.condition, state.aside.time, id);
     }
-    smallView.setBackground(state.aside.condition, state.aside.time, id);
 }
 
 async function showMore(e) {
