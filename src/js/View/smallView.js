@@ -1,21 +1,5 @@
 import * as twinView from './twinView';
 
-/*
-export function renderSideLoader(num) {
-    const markup = `
-    <div class="icon-circle-small">
-                <i class="fa-solid fa-circle-notch"></i>
-            </div>
-    `
-    document.querySelector(`.${num}`).insertAdjacentHTML('afterbegin', markup);
-}
-
-export function clearSideLoader(num) {
-    const loader = document.querySelector(`.${num}`);
-    loader.parentElement.removeChild(loader);
-
-}
-*/
 
 //FLIP BOX TO SHOW USER HAS CLICKED//
 
