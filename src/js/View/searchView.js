@@ -150,16 +150,15 @@ export function renderItem(town) {
                 </div>
                 <div class="all-con">
                             <ul class="con-list">
-                                <li class="wet temp-f">Feels Like => ${twinView.removeDecimal(town.feelslike)}&#176c</li >
-                                <li class="wet wind-speed-kph">Wind Speed => ${town.wind_kph} km/h</li >
-                                <li class="wet wind-speed-kph">Gust => ${town.gust_kph} km/h</li >
-                                <li class="wet wind-direction">Wind Direction => ${town.wind_dir}</li >
-                                <li class="wet wind-degree">Wind Degree => ${town.wind_degree}&#176</li >
-                                <li class="wet pressure">Pressure => ${town.pressure_mb} mb</li >
-                                <li class="wet prec">Precipitation => ${town.prec} mm</li >
-                                <li class="wet humidity">Humidity =>${town.humidity}%</li >
-                                <li class="wet cloud">Cloud=> ${town.cloud}</li >
-                                <li class="wet uv">UV => ${UVIndex(town.uv)}</li >
+                                <li class="wet temp-f">Feels Like <br/> <i class="fa-solid fa-hand-point-right"></i> ${twinView.removeDecimal(town.feelslike)}&#176c</li >
+                                <li class="wet wind-speed-kph">Wind Speed <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.wind_kph} km/h</li >
+                                <li class="wet wind-speed-kph">Gust <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.gust_kph} km/h</li >
+                                <li class="wet wind-direction">Wind Direction <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.wind_dir}</li >
+                                <li class="wet wind-degree">Wind Degree <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.wind_degree}&#176</li >
+                                <li class="wet pressure">Pressure <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.pressure_mb} mb</li >
+                                <li class="wet prec">Precipitation <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.prec} mm</li >
+                                <li class="wet humidity">Humidity <br/> <i class="fa-solid fa-hand-point-right"></i> ${town.humidity}%</li >                              
+                                <li class="wet uv">UV <br/> <i class="fa-solid fa-hand-point-right"></i> ${UVIndex(town.uv)}</li >
                             </ul>
                 </div>`
 
