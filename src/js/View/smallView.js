@@ -94,6 +94,7 @@ export function renderSmall(place, num) {
             <div class="cur-timely">
                 <h6 class="small is-timely time-now-${num}">${twinView.getTime(place.time)}</h6>
                 <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                <p class="city-change">Change City</p>
                     <p class="small date-is">${twinView.getDate(place.time)}</p>
             </div>    
             <div class= "weather-temp">
@@ -107,6 +108,7 @@ export function renderSmall(place, num) {
                 <h3 class="small headings small-top">${place.name}</h3>
                 <h5 class="small headings small-next">${place.country}</h5>
                 <i class="fa-solid fa-${num} fa-circle-arrow-right"></i>
+                <p class="show-more">More...</p>
             </div>
             </div>`
 
