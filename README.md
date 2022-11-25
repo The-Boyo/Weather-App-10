@@ -1,6 +1,6 @@
 # Weather-App
 
-A weather application built with vanilla js and uses a rest api to fetch weather information.
+A weather application built with vanilla js and uses a rest api to fetch information.
 
 ## Features
 
