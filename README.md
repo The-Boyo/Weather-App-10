@@ -2,6 +2,8 @@
 
 A weather application built with vanilla js and uses a rest api to fetch information.
 
+Hosted here--> https://thepurgeweather.netlify.app/
+
 ## Features
 
 The app is stitched differently with a wide range of cool features that provides a tuneful user experience. A background changer, change city button, show more details button are just some of the features without forgetting the cool 3D like weather info containers.
