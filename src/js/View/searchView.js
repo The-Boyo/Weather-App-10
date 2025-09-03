@@ -79,52 +79,79 @@ Setting the Main display Background
 
 const display = document.querySelector('.display');
 
+// export function setBackground(con, timer) {
+//     const newTime = twinView.getTime(timer);
+
+//     if (newTime.endsWith('pm')) {
+//         let saa;
+//         if (newTime.length === 8) {
+//             saa = eval(`${newTime[0]}${newTime[1]}`);
+//             console.log(saa)
+//             if (saa === 12) {
+//                 twinView.conBackground(con, display, changeColor, changeTimeColor);
+//             } else if (saa >= 7) {
+//                 display.style.backgroundImage = "url('../img/night.jpg')";
+//                 changeAllColor();
+//             }
+//         }
+//         else if (newTime.length === 7) {
+//             saa = eval(`${newTime[0]}`);
+//             if (saa >= 7) {
+//                 display.style.backgroundImage = "url('../img/night.jpg')";
+//                 changeAllColor();
+//             } else if (saa < 7) {
+//                 twinView.conBackground(con, display, changeColor, changeTimeColor);
+//             }
+//         }
+//     }
+
+//     else if (newTime.endsWith('am')) {
+//         let masaa;
+//         if (newTime.length === 8) {
+//             masaa = eval(`${newTime[0]}${newTime[1]}`);
+//             if (masaa === 12) {
+//                 display.style.backgroundImage = "url('../img/night.jpg')";
+//                 changeAllColor();
+//             } else if (masaa >= 7) {
+//                 twinView.conBackground(con, display, changeColor, changeTimeColor);
+//             }
+//         } else if (newTime.length === 7) {
+//             masaa = eval(`${newTime[0]}`)
+//             if (masaa >= 6) {
+//                 twinView.conBackground(con, display, changeColor, changeTimeColor);
+//             } else if (masaa < 6) {
+//                 display.style.backgroundImage = "url('../img/night.jpg')";
+//                 changeAllColor();
+//             }
+//         }
+//     }
+
+// }
+
 export function setBackground(con, timer) {
-    const newTime = twinView.getTime(timer);
+  const display = document.querySelector('.display');
+  if (!display) return;
 
-    if (newTime.endsWith('pm')) {
-        let saa;
-        if (newTime.length === 8) {
-            saa = eval(`${newTime[0]}${newTime[1]}`);
-            if (saa === 12) {
-                twinView.conBackground(con, display, changeColor, changeTimeColor);
-            } else if (saa >= 7) {
-                display.style.backgroundImage = "url('../img/night.jpg')";
-                changeAllColor();
-            }
-        }
-        else if (newTime.length === 7) {
-            saa = eval(`${newTime[0]}`);
-            if (saa >= 7) {
-                display.style.backgroundImage = "url('../img/night.jpg')";
-                changeAllColor();
-            } else if (saa < 7) {
-                twinView.conBackground(con, display, changeColor, changeTimeColor);
-            }
-        }
+  const newTime = twinView.getTime(timer);
+
+  const hour = parseInt(newTime.split(':')[0], 10);
+  const isPM = newTime.endsWith('pm');
+
+  if (isPM) {
+    if (hour === 12 || hour < 7) {
+      twinView.conBackground(con, display, changeColor, changeTimeColor);
+    } else {
+      display.style.backgroundImage = "url('../img/night.jpg')";
+      changeAllColor();
     }
-
-    else if (newTime.endsWith('am')) {
-        let masaa;
-        if (newTime.length === 8) {
-            masaa = eval(`${newTime[0]}${newTime[1]}`);
-            if (masaa === 12) {
-                display.style.backgroundImage = "url('../img/night.jpg')";
-                changeAllColor();
-            } else if (masaa >= 7) {
-                twinView.conBackground(con, display, changeColor, changeTimeColor);
-            }
-        } else if (newTime.length === 7) {
-            masaa = eval(`${newTime[0]}`)
-            if (masaa >= 6) {
-                twinView.conBackground(con, display, changeColor, changeTimeColor);
-            } else if (masaa < 6) {
-                display.style.backgroundImage = "url('../img/night.jpg')";
-                changeAllColor();
-            }
-        }
+  } else {
+    if (hour >= 6 && hour !== 12) {
+      twinView.conBackground(con, display, changeColor, changeTimeColor);
+    } else {
+      display.style.backgroundImage = "url('../img/night.jpg')";
+      changeAllColor();
     }
-
+  }
 }
 
 
